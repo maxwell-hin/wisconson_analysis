@@ -47,8 +47,8 @@ heading = ['ExperimentName', 'Subject', 'Session', 'Clock.Information',
 txt_data_path = './txt_files'
 
 # check the eprime version
-filename = 'Wisconsin-1174-3.txt'  # v3
-filename = 'Wisconsin-1171-1.txt'  # v2
+# filename = 'Wisconsin-1174-3.txt'  # v3
+# filename = 'Wisconsin-1171-1.txt'  # v2
 
 
 def checkver():
@@ -74,8 +74,8 @@ for filename in os.listdir(txt_data_path+'/edited_txt'):  # iteration every txt 
         if checkver() == '2':
             df = df.loc[:, heading]
             output_file_path = './revised_excel_files/'
-            df.to_excel(output_file_path+filename.split(".")
-                        [0] + ".xlsx", index=False)
+            df.to_csv(output_file_path+filename.split(".")
+                      [0] + ".csv", index=False)
 
         else:
             heading_new = []
@@ -96,6 +96,6 @@ for filename in os.listdir(txt_data_path+'/edited_txt'):  # iteration every txt 
                     df = df.rename({col: new_title}, axis=1)
             df = df.loc[:, heading_new]
             output_file_path = './revised_excel_files/'
-            df.to_excel(output_file_path+filename.split(".")
-                        [0] + ".xlsx", index=False)
+            df.to_csv(output_file_path+filename.split(".")
+                      [0] + ".csv", index=False)
         print('Finsihed ' + filename)

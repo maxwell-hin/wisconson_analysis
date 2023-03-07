@@ -15,7 +15,7 @@ excel_path = './revised_excel_files/'
 
 
 def summary_WCST(file):
-    df = pd.read_excel(excel_path+file)  # what
+    df = pd.read_csv(excel_path+file)  # what
     #filename = os.listdir()[3]
     # df.drop([0, 1, 2, 3, 4, 5], inplace=True)
     df = df.reset_index(drop=True)

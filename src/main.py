@@ -4,18 +4,18 @@ import glob
 import os
 
 
-def main(raw_txt_folder, product_excel):
+def main(raw_csv_folder, product_excel):
     """
     This function is the main function of the program. It takes in the folder
     path of the raw text files and the path of the product excel file. It
     calls the functions in the Analysis.py file to create the excel file.
     """
 
-    os.chdir('/Users/maxwell/Coding/PolyU/wisconsin')
+    os.chdir('/Users/maxwell/Coding/PolyU/wisconson_analysis')
 
-    os.chdir(raw_txt_folder)
-    filename_list = glob.glob('*.xlsx')
-    os.chdir('/Users/maxwell/Coding/PolyU/wisconsin')
+    os.chdir(raw_csv_folder)
+    filename_list = glob.glob('*.csv')
+    os.chdir('/Users/maxwell/Coding/PolyU/wisconson_analysis')
 
     pre_df = pd.DataFrame()
     impo_df = pd.DataFrame()
@@ -40,4 +40,4 @@ def main(raw_txt_folder, product_excel):
         wis.write_excel(pre_df, impo_df, one_mth_df, six_mth_df)
 
 
-var = 'a'
+main('revised_excel_files', 'WSCT Output.xlsx')
