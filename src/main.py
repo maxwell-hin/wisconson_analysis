@@ -1,10 +1,10 @@
 import pandas as pd
-import src.Analysis as wis
+import Analysis as wis
 import glob
 import os
 
 
-def main(raw_csv_folder, product_excel):
+def main(raw_csv_folder, product_excel='WSCT Output.xlsx'):
     """
     This function is the main function of the program. It takes in the folder
     path of the raw text files and the path of the product excel file. It
@@ -37,7 +37,8 @@ def main(raw_csv_folder, product_excel):
 
         elif session == 4:
             six_mth_df = pd.concat([six_mth_df, tem_df], ignore_index=True)
-        wis.write_excel(pre_df, impo_df, one_mth_df, six_mth_df)
+    wis.write_excel(pre_df, impo_df, one_mth_df, six_mth_df, product_excel)
 
 
-main('revised_excel_files', 'WSCT Output.xlsx')
+if __name__ == '__main__':
+    main('revised_excel_files', 'WSCT Output.xlsx')

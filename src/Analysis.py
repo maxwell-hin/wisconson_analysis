@@ -15,9 +15,9 @@ excel_path = './revised_excel_files/'
 
 
 def summary_WCST(file):
-    df = pd.read_csv(excel_path+file)  # what
+    df = pd.read_csv(excel_path+file)
     #filename = os.listdir()[3]
-    # df.drop([0, 1, 2, 3, 4, 5], inplace=True)
+    df.drop([0, 1, 2, 3, 4, 5], inplace=True)
     df = df.reset_index(drop=True)
 
     # ==============================================================================
@@ -285,9 +285,9 @@ def reset_index(df):
     return df
 
 
-def write_excel(pre_df, impo_df, one_mth_df, six_mth_df):
+def write_excel(pre_df, impo_df, one_mth_df, six_mth_df, product_excel='WSCT Output.xlsx'):
     # Create a Pandas Excel writer using XlsxWriter as the engine.
-    writer = pd.ExcelWriter('./WSCT Output.xlsx', engine='xlsxwriter')
+    writer = pd.ExcelWriter(product_excel, engine='xlsxwriter')
     pre_df = reset_index(pre_df)
     impo_df = reset_index(impo_df)
     one_mth_df = reset_index(one_mth_df)
